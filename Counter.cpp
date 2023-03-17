@@ -4,13 +4,15 @@
 using namespace std;
 
 class Counter {
-
-public:
     int num;
+public:
+    Counter() : num(1) {}
     
-    void add() {  num = num + 1; } 
+    void add() { num = num + 1; } 
         void subtract()  { num = num - 1; }
-   
+        int getx() { return num; }
+        void setx(int p_num) {
+            num = p_num;}
 };
 
 int main(){
@@ -18,8 +20,10 @@ int main(){
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
+    
+   
     Counter number;
-    int num;
+    int n;
     string  symbols;
     string answer;
 
@@ -29,18 +33,20 @@ int main(){
 
     if (answer == "да") {
         cout << "Введите начальное значение счётчика: " << endl;
-        cin >> num;
+        cin >> n;
+        number.setx(n);
+        
         break;
     }
     else if (answer == "нет") {
-        num = 1;
+        
         break;
     }
     else {
         cout << "Неверный ответ, поробуйте снова" << endl;
     };
 }
-    number.num = num;
+    
 
     while (true) {
         
@@ -54,7 +60,7 @@ int main(){
             number.subtract();
         }
         else if (symbols == "=") {
-            cout << number.num << endl;
+            cout << number.getx() << endl;
         }
         else if (symbols == "х" ) {
 
