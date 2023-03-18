@@ -4,52 +4,51 @@
 using namespace std;
 
 class Counter {
-    int num;
+    int num = 1 ;
 public:
-    Counter() : num(1) {}
-    
+    int n;
+   Counter(int n) : num(n) {}
+    Counter(){}
     void add() { num = num + 1; } 
         void subtract()  { num = num - 1; }
         int getx() { return num; }
-        void setx(int p_num) {
-            num = p_num;}
+     
 };
 
-int main(){
+int main() {
     setlocale(LC_ALL, "Russian");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-
-    
-   
+   int n;
     Counter number;
-    int n;
+
     string  symbols;
     string answer;
 
-    while (true){
-        cout << "Вы хотите указать начальное значение счётчика? Введите да или нет: ";
-    cin >> answer;
-
-    if (answer == "да") {
-        cout << "Введите начальное значение счётчика: " << endl;
-        cin >> n;
-        number.setx(n);
-        
-        break;
-    }
-    else if (answer == "нет") {
-        
-        break;
-    }
-    else {
-        cout << "Неверный ответ, поробуйте снова" << endl;
-    };
-}
-    
 
     while (true) {
-        
+        cout << "Вы хотите указать начальное значение счётчика? Введите да или нет: ";
+        cin >> answer;
+
+        if (answer == "да") {
+            cout << "Введите начальное значение счётчика: " << endl;
+           
+            cin >> n;
+            number = Counter(n);
+            break;
+        }
+        else if (answer == "нет") {
+            break;
+        }
+        else {
+            cout << "Неверный ответ, поробуйте снова" << endl;
+        };
+    }
+
+
+
+    while (true) {
+
         cout << "Введите команду ('+', '-', '=' или 'x'): ";
         cin >> symbols;
 
@@ -62,7 +61,7 @@ int main(){
         else if (symbols == "=") {
             cout << number.getx() << endl;
         }
-        else if (symbols == "х" ) {
+        else if (symbols == "х") {
 
             return true;
         }
