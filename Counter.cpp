@@ -6,7 +6,7 @@ using namespace std;
 class Counter {
     int num = 1 ;
 public:
-    int n;
+    
    Counter(int n) : num(n) {}
     Counter(){}
     void add() { num = num + 1; } 
